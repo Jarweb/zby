@@ -1,0 +1,88 @@
+<ion-view view-title="订单填写" hide-nav-bar="false"  animation="slide-right-left" ng-controller="GoodCtrl">
+    <ion-nav-bar class="bar-light" >
+      <ion-nav-buttons side="left">
+      <button  class="button button-icon ion-ios-arrow-left" ng-click="navigateTo('app.goods.good.buyinfo')"></button>
+      </ion-nav-buttons>
+      
+<!--       <ion-nav-buttons side="right">
+        <button  class="button" ng-click="save(username,usertell,userremark,datepicker)">提交</button>
+      </ion-nav-buttons> -->
+
+    </ion-nav-bar>
+
+    <ion-content>
+    <div class="ordersub">
+        <div class="row">
+          <div class="col-90 tit">{{good.name}}</div>
+        </div>
+        
+        <div class="row">
+          <div class="col-20">总价(元):</div>
+          <div class="col-80" ng-bind="good.priceA*count" style="font-size: 16px;color: red;"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-20">单价(元): </div>
+            <div class="col-20">{{good.priceA}}</div>
+            <div class="col-20">数量(份):</div>
+
+            <div class="col-10 ico" ng-click="reduce()" >
+                <i class="ion-ios-minus-outline"></i>
+            </div>
+            <div class="col-10" >
+              <span style="text-align: left;">{{count}}</span>
+            </div>
+            <div class="col-10" ng-click="add()">
+                <i class="ion-ios-plus-outline"></i>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-20">
+              预定时间:
+            </div>
+            <div class="col-67">
+              <label class="item item-input date">
+                    <i class="ion-android-calendar"></i>
+                    <input type="text"
+                    placeholder="在这里选择日期"
+                    ng-model="datepicker"
+                    name="datepicker"
+                    ng-click="opendateModal()"
+                    readonly >
+                <i class="ion-ios-arrow-right" ng-click="expression"></i>
+              </label>
+            </div>
+        </div>
+
+        <p>[购买规则]</p>
+        <div class="row" ng-repeat="item in buyInfos">
+          <ul>
+            <li>{{item}}</li>
+          </ul>
+        </div>
+
+        <span class="hr"></span>
+        <p>联系人信息填写</p>
+        <div class="row">
+          <label for="">姓名:</label>
+          <input type="text" class="linker" ng-model="username"
+          name="username">
+        </div>
+
+        <div class="row">
+          <label for="">电话:</label>
+          <input type="text" class="linker" ng-model="usertell" name="usertell">
+        </div>
+
+        <div class="row">
+          <label for="">备注:</label>
+          <input type="text" class="linker" ng-model="userremark" name="userremark">
+        </div>
+        
+      <div class="row" style="padding-top: 4px;">
+        <button type="button" class="button button-full button-assertive" ng-click="save(username,usertell,userremark,datepicker)" style="margin: 0 auto;">提交订单</button>
+      </div>
+    </div>
+    </ion-content>
+</ion-view>

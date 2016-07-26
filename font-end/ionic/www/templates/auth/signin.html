@@ -1,0 +1,30 @@
+<ion-view view-title="快乐周边" hide-nav-bar="false" hide-back-button="true"  animation="slide-right-left">
+	<ion-nav-bar class="bar-light" >
+      	<ion-nav-buttons side="right">
+		<button  class="button button-assertive button-icon " ng-click="navigateTo('app.auth')">登录</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+
+	<ion-content>
+	<div class="signin" ng-controller="AuthCtrl">
+
+      <form  role="form" ng-submit="signup()">
+		    <div class="row tell">
+          <input type="text" placeholder="请输入手机号" ng-model="signuptell" name="signuptell">
+        </div>
+
+        <div class="row pass">
+          <input type="text" placeholder="请输入密码" ng-model="signuppass" name="signuppass">
+        </div>
+
+        <div class="row btn">
+        	<input type="submit" value="注册" class="button button-assertive">
+        </div>
+      </form>
+
+        <div class="row last">
+        	注册即表示您接受“快乐周边” <a href=""> 用户协议</a>
+        </div>
+      </div>
+	</ion-content>
+</ion-view>

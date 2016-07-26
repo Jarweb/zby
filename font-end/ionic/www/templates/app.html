@@ -1,0 +1,91 @@
+<ion-view view-title="快乐周边" hide-nav-bar="false" animation="slide-right-left" ng-controller="HomeCtrl">
+    <ion-nav-bar class="bar-light" >
+      <ion-nav-buttons side="left">
+        <button  class="button button-icon icon ion-ios-person iconcol" ng-click="navigateTo('app.user')"></button>
+      </ion-nav-buttons>
+
+      <ion-nav-buttons side="right">
+        <button  class="button button-icon icon ion-location iconcol" ng-click="toCity('app.city')" ng-bind="city"></button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-content class="has-header profile-page" scroll="false">
+     
+      <ion-slide-box auto-play="true" >
+        <ion-slide>
+          <div class="slidebox">
+            <img src="img/slide1.webp" alt="">
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div class="slidebox">
+            <img src="img/slide2.webp" alt="">
+          </div>
+        </ion-slide>
+        <ion-slide >
+          <div class="slidebox">
+            <img src="img/slide3.webp" alt="">
+          </div>
+        </ion-slide>
+      </ion-slide-box>
+
+    <div class="row">
+        <div class="col" ng-click="toGoods('温泉')">
+            <img src="img/icon1.png" alt="">
+            <span>温泉</span>
+        </div>
+        <div class="col"  ng-click="toGoods('亲子')">
+          <img src="img/icon2.png" alt="">
+          <span>亲子游</span>
+        </div>
+        <div class="col" ng-click="toGoods('度假')">
+          <img src="img/icon3.png" alt="">
+          <span>酒店度假</span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col" ng-click="toGoods('农家乐')">
+          <img src="img/icon5.png" alt="">
+          <span>农家乐</span>
+        </div>
+        <div class="col" ng-click="toGoods('主题馆')">
+          <img src="img/icon6.png" alt="">
+          <span>主题馆</span>
+        </div>
+        <div class="col" ng-click="toGoods('乐园')">
+          <img src="img/icon4.png" alt="">
+          <span>乐园门票</span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col" ng-click="toSrtategys('演艺')">
+          <img src="img/icon7.png" alt="">
+          <span>演艺</span>
+        </div>
+        <div class="col" ng-click="toSrtategys('游玩')">
+          <img src="img/icon8.png" alt="">
+          <span>游玩</span>
+        </div>
+        <div class="col" ng-click="toSrtategys('电影')">
+          <img src="img/icon9.png" alt="">
+          <span>电影</span>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col" ng-click="toSrtategys('户外')">
+        <img src="img/icon2.png" alt="">
+        <span>户外</span>
+      </div>
+      <div class="col" ng-click="toSrtategys('展览')">
+        <img src="img/icon3.png" alt="">
+        <span>展览</span>
+      </div>
+      <div class="col" ng-click="toSrtategys('美食')">
+        <img src="img/icon1.png" alt="">
+        <span>美食</span>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

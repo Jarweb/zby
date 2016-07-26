@@ -1,0 +1,58 @@
+<ion-view view-title="我的订单" hide-nav-bar="false" class="titlecenter" ng-controller="OrdersCtrl">
+	<ion-nav-bar class="bar-light" >
+	  <ion-nav-buttons side="left">
+        <button  class="button button-icon icon ion-ios-arrow-left" ng-click="navigateTo('app.user')"></button>
+	  </ion-nav-buttons>
+	</ion-nav-bar>
+
+	<ion-content>
+		<li class="orderlist" ng-repeat="item in orders">
+
+			<div class="row">
+				<div class="col">{{item.goodName}}</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-10"><i class="ion-map"></i></div>
+				<div class="col-90">地址:&nbsp;&nbsp;{{item.goodAddress}}</div>
+			</div>
+
+			<div class="row" style="border-bottom: 1px dashed #009966;margin-bottom: 4px;padding-bottom: 12px;">
+				<div class="col-10">
+				  <i class="ion-ios-people"></i>
+				</div>
+				<div class="col-90">客服:&nbsp;&nbsp;{{item.goodTell}}</div>
+			</div>
+
+			<div class="row">
+				<div class="col-33">总价:&nbsp;&nbsp;{{item.sumPrice}} 元</div>
+				<div class="col-33">数量:&nbsp;&nbsp;{{item.buyNum}} 份</div>
+				<div class="col-33">单价:&nbsp;&nbsp;{{item.goodPrice}} 元</div>
+			</div>
+			
+			<div class="row" style="border-bottom: 1px dashed #009966;margin-bottom: 4px;padding-bottom: 12px;">
+			<div class="col-10"><i class="ion-ios-calendar-outline"></i></div>
+				<div class="col-90">预定时间:&nbsp;&nbsp;{{item.buyDate}}</div>
+			</div>
+			
+			<div class="row">
+			<div class="col-10"><i class="ion-person"></i></div>
+				<div class="col-90">联系人:&nbsp;&nbsp;{{item.buyerName}}</div>
+			</div>
+			<div class="row">
+			<div class="col-10"><i class="ion-iphone"></i></div>
+
+				<div class="col-90">手机:&nbsp;&nbsp;{{item.buyerPhone}}</div>
+			</div>
+			<div class="row">
+			<div class="col-10"><i class="ion-ios-compose"></i></div>
+				<div class="col-90">备注:&nbsp;&nbsp;{{item.buyerRemark}}</div>
+			</div>
+			<div class="row">
+			<div class="col-10"><i class="ion-calendar"></i></div>
+				<div class="col-90">下单时间:&nbsp;&nbsp;{{item.meta.createAt | date:'yyyy-MM-dd'}}</div>
+			</div>
+
+		</li>
+	</ion-content>
+</ion-view>

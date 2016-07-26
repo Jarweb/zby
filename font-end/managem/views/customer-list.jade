@@ -1,0 +1,41 @@
+extends ../layout
+
+block content
+	nav.navbar.navbar-default.navbar-fixed-top
+		.container-fluid
+			.navbar-header
+				button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false")
+					span.sr-only Toggle navigation
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+				a.navbar-brand(href="/manager/home") 周边游
+			.navbar-collapse.collapse#bs-example-navbar-collapse-1
+				ul.nav.navbar-nav
+					li
+						a.hnav(href="/manager/customer/list") 用户列表
+					li
+						a.hnav(href="/manager/good/list") 商品列表
+					li
+						a.hnav(href="/manager/strategy/list") 攻略列表
+					li
+						a.hnav(href="/manager/good/submit") 商品录入
+					li
+						a.hnav(href="/manager/strategy/submit") 攻略录入
+				a(type="button",href="/manager/logout",class="btn navbar-right btn-danger bt") 登出
+	.container.margintop
+		.panel.panel-default
+			.panel-heading 攻略列表
+			span(style="margin-top:4px;padding-left:13px;") 用户数量:
+			span(style="padding-left:13px;") #{customers.length}
+		table.table.table-responsive.table-bordered
+			thead
+				tr
+					th 用户账号
+					th 创建时间
+			tbody
+				if customers
+					each item in customers
+						tr
+							td #{item.tell}
+							td #{moment(item.meta.updateAt).format('YYYY/MM/DD HH:MM:SS')}

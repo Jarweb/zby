@@ -1,0 +1,81 @@
+extends ../layout
+
+block content
+	nav.navbar.navbar-default.navbar-fixed-top
+		.container-fluid
+			.navbar-header
+				button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false")
+					span.sr-only Toggle navigation
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+				a.navbar-brand(href="/manager/home") 周边游
+			.navbar-collapse.collapse#bs-example-navbar-collapse-1
+				ul.nav.navbar-nav
+					li
+						a.hnav(href="/manager/customer/list") 用户列表
+					li
+						a.hnav(href="/manager/good/list") 商品列表
+					li
+						a.hnav(href="/manager/strategy/list") 攻略列表
+					li
+						a.hnav(href="/manager/good/submit") 商品录入
+					li
+						a.hnav(href="/manager/strategy/submit") 攻略录入
+				a(type="button",href="/manager/logout",class="btn navbar-right btn-danger bt") 登出
+				a.btn.btn-info.submit.navbar-right.bt(type="button") 攻略录入
+	.container.margintop
+		.row
+			.col-md-6
+				.row.marginbottom
+					label(for="inputCity",class="col-sm-2 control-label") 所在城市
+					.col-sm-10
+						input(type="text",class="form-control",id="inputCity",placeholder="所在城市")
+				.row.marginbottom
+					span.col-sm-2(style="font-weight: bold;") 标签主题
+					.col-sm-10
+						input(type="radio",name="tag",id="inlineRadio1",value="演艺")
+						label.radio-inline.marginright(for="inlineRadio1") 演艺
+						input(type="radio",name="tag",id="inlineRadio2",value="游玩")
+						label.radio-inline.marginright(for="inlineRadio2") 游玩
+						input(type="radio",name="tag",id="inlineRadio3",value="电影")
+						label.radio-inline.marginright(for="inlineRadio3") 电影
+						input(type="radio",name="tag",id="inlineRadio4",value="美食")
+						label.radio-inline.marginright(for="inlineRadio4") 美食
+						input(type="radio",name="tag",id="inlineRadio5",value="展览")
+						label.radio-inline.marginright(for="inlineRadio5") 展览
+						input(type="radio",name="tag",id="inlineRadio6",value="户外")
+						label.radio-inline.marginright(for="inlineRadio6") 户外
+				.row.marginbottom
+					label(for="inputTitle",class="col-sm-2 control-label") 标题:
+					.col-sm-10
+						input(type="text",class="form-control",id="inputTitle",placeholder="标题")
+				.row.marginbottom
+					form(method="POST", id="uploadForm", enctype="multipart/form-data")
+						label(for="inputPoster",class="col-sm-2 control-label") 海报上传:
+						.col-sm-10
+							input(type="file",id="inputPoster",name="uploadPoster",style="display: inline-block;")
+							button(type="button",class="save") 保存图片
+							p.help-block
+				.row.marginbottom
+					label(for="inputAddress",class="col-sm-2 control-label") 详细地址:
+					.col-sm-10
+						input(type="text",class="form-control",id="inputAddress",placeholder="详细地址 省、市、区、街道")
+				.row.marginbottom
+					label(for="inputTell",class="col-sm-2 control-label") 客服电话:
+					.col-sm-10
+						input(type="text",class="form-control",id="inputTell",placeholder="客服电话")
+				.row.marginbottom
+					label(for="inputPrice",class="col-sm-2 control-label") 价格:
+					.col-sm-10
+						input(type="text",class="form-control",id="inputPrice",placeholder="价格或价格段")
+				.row.marginbottom
+					label(for="inputTime",class="col-sm-2 control-label") 时间段:
+					.col-sm-10
+						input(type="text",class="form-control",id="inputTime",placeholder="时间段")
+			.col-md-6
+				.row
+					.col-sm-6
+						p(style="font-weight: bold") 详情图文介绍:
+				.summernote
+	script(src="/font-end/managem/js/strategy-submit.js")

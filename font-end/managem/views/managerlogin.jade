@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+  .container.mtop
+    .row
+      .col-sm-4.col-sm-offset-4
+        h4.centen #{title}
+        form(method="POST", action="/manager/login/post",enctype="multipart/form-data")
+          .modal-body
+            .form-group
+              label(for="login") 管理员账号
+              input#login.form-control(name="manager[email]", type="text")
+            .form-group
+              label(for="managerPassword") 管理员密码
+              input#managerPassword.form-control(name="manager[password]", type="password")
+          .col-sm-4.col-sm-offset-4
+            button.btn.btn-success(type="submit") 管理员登陆

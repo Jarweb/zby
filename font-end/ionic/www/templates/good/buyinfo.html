@@ -1,0 +1,111 @@
+<ion-view view-title="购买细节" hide-nav-bar="false" animation="slide-right-left" ng-controller="GoodCtrl">
+    <ion-nav-bar class="bar-light" >
+      <ion-nav-buttons side="left">
+      <button  class="button button-icon ion-ios-arrow-left" ng-click="navigateTo('app.goods.good')"></button>
+      </ion-nav-buttons>
+
+      <ion-nav-buttons side="right">
+        <button  class="button button-assertive button-icon ion-ios-cart" ng-click="navigateTo('app.goods.good.buyinfo.ordersubmit')">下单</button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-content>
+    <div class="buyinfo">
+        <div class="buyinfo-head">
+          <img src="img/list.jpg" alt="" ng-src="http://192.168.191.1:3001/back-end/public/upload/{{good.poster}}">
+          <div class="row">
+            <div class="col">{{good.title}}</div>
+          </div>
+          <div class="row">
+            <div class="col" style="text-align: left;">{{good.subTitle}}</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-67">{{good.name}}</div>
+          <span class="price">￥ {{good.priceA}}</span>
+          <del class="">￥ {{good.priceB}}</del>
+        </div>
+
+        <div class="row">
+          <div class="col-10">
+            <i class="ion-map"></i>
+          </div>
+          <div class="col-80">{{good.address}}</div>
+          <div class="col-10">
+            <i class="ion-ios-location-outline" ng-click="navigateTo('app.goods.good.buyinfo.map')"></i>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-10">
+            <i class="ion-ios-people"></i>
+          </div>
+          <div class="col-80">
+            <a href="tel:{{good.tell}}" class="">客服: {{good.tell}}</a>
+            </div>
+            <div class="col-10">
+              <a href="tel:{{good.tell}}" class="">
+              <i class="ion-ios-telephone-outline"></i></a>
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="col-10">
+            <i class="ion-ios-volume-high"></i>
+          </div>
+          <div class="col-90">套餐说明:</div>
+        </div>
+
+        <div class="tool-box">
+          <p class="tool">[设施配备]</p>
+          <div class="row">
+              <div class="col-20">
+                <span><i class="ion-wifi"></i></span>
+                <span>wifi</span>
+              </div>
+              <div class="col-20">
+                <span><i class="ion-laptop"></i></span>
+                <span>书桌</span>
+              </div>
+              <div class="col-20">
+                <span><i class="ion-planet"></i></span>
+                <span>有线网络</span>
+              </div>
+              <div class="col-20">
+                <span><i class="ion-social-youtube-outline"></i></span>
+                <span>电视</span>
+              </div>
+              <div class="col-20">
+                <span><i class="ion-waterdrop"></i></span>
+                <span>热水</span>
+              </div>
+          </div>
+
+          <p class="tool">[套餐包含]</p>
+          <div class="row"  ng-repeat="item in includes">
+              <ul >
+                <li>{{item}}</li>
+              </ul>
+          </div>
+
+          <p class="tool">[使用说明]</p>
+          <div class="row" ng-repeat="item in useInfos">
+              <ul>
+                <li>{{item}}</li>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-10">
+            <i class="ion-clipboard"></i>
+          </div>
+          <div class="col-90">购买须知:</div>
+        </div>
+        <div class="row" ng-repeat="item in buyInfos">
+          <ul>
+            <li>{{item}}</li>
+          </ul>
+        </div>
+    </div>
+    </ion-content>
+</ion-view>

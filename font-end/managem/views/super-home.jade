@@ -1,0 +1,41 @@
+extends ../layout
+
+block content
+	.container
+		div.panel.panel-default
+			div.panel-heading.panel-heading-color
+				.row
+					.col-sm-12
+						a(href="/super/logout",class="logout btn btn-danger") 超级管理员登出
+			div.panel-body
+				h4 所有管理员:
+				table.table.table-hover.table-bordered
+					thead
+						tr
+							th 管理员账号
+							th 管理员密码
+							th 创建时间
+							th 删除
+					tbody
+						if managers
+							each item in managers
+								tr(class="item-id-#{item._id}")
+									td #{item.email}
+									td #{item.password}
+									td #{moment(item.meta.createAt).format('MM/DD/YYYY')}
+									td
+										button.btn.btn-danger.del(type="button", data-id="#{item._id}") 删除
+		div.panel.panel-default
+			div.panel-heading.panel-heading-color 创建管理员:
+			div.panel-body
+				form(method="POST", action="/super/manager/post",enctype="multipart/form-data")
+					.modal-body
+						.form-group
+							label(for="managerAccount") 管理员账号:
+							input#managerAccount.form-control(name="manager[email]", type="text")
+						.form-group
+							label(for="managerPassword") 管理员密码:
+							input#managerPassword.form-control(name="manager[password]", type="password")
+					.col-sm-4.col-sm-offset-4
+						button.btn.btn-success(type="submit") 创建
+	script(src="/font-end/managem/js/super-home.js")

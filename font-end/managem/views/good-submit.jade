@@ -1,0 +1,117 @@
+extends ../layout
+
+block content
+	nav.navbar.navbar-default.navbar-fixed-top
+		.container-fluid
+			.navbar-header
+				button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false")
+					span.sr-only Toggle navigation
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+				a.navbar-brand(href="/manager/home") 周边游
+			.navbar-collapse.collapse#bs-example-navbar-collapse-1
+				ul.nav.navbar-nav
+					li
+						a.hnav(href="/manager/customer/list") 用户列表
+					li
+						a.hnav(href="/manager/good/list") 商品列表
+					li
+						a.hnav(href="/manager/strategy/list") 攻略列表
+					li
+						a.hnav(href="/manager/good/submit") 商品录入
+					li
+						a.hnav(href="/manager/strategy/submit") 攻略录入
+				a(type="button",href="/manager/logout",class="btn navbar-right btn-danger bt") 登出
+				a.btn.btn-info.submit.navbar-right.bt(type="button") 商品录入
+	.container.margintop
+		.row
+			.col-md-6
+				.row.marginbottom
+					label(for="inputCity",class="col-sm-2 control-label") 所在城市:
+					.col-sm-10
+						input(type="text",class="form-control",id="inputCity",placeholder="所在城市")
+				.row.marginbottom
+					span.col-sm-2(style="font-weight: bold;") 标签主题:
+					.col-sm-10
+						input(type="radio",name="tag",id="inlineRadio1",value="温泉")
+						label.radio-inline.marginright(for="inlineRadio1") 温泉
+						input(type="radio",name="tag",id="inlineRadio2",value="亲子")
+						label.radio-inline.marginright(for="inlineRadio2") 亲子
+						input(type="radio",name="tag",id="inlineRadio3",value="度假")
+						label.radio-inline.marginright(for="inlineRadio3") 度假
+						input(type="radio",name="tag",id="inlineRadio4",value="乐园")
+						label.radio-inline.marginright(for="inlineRadio4") 乐园
+						input(type="radio",name="tag",id="inlineRadio5",value="农家乐")
+						label.radio-inline.marginright(for="inlineRadio5") 农家乐
+						input(type="radio",name="tag",id="inlineRadio6",value="主题馆")
+						label.radio-inline.marginright(for="inlineRadio6") 主题馆
+				.row.marginbottom
+					label(for="inputTitle",class="col-sm-2 control-label") 标题:
+					.col-sm-10
+						input(type="text",class="form-control",id="inputTitle",placeholder="标题")
+				.row.marginbottom
+					label(for="inputSubtitle",class="col-sm-2 control-label") 小标题:
+					.col-sm-10
+						input(type="text",class="form-control",id="inputSubtitle",placeholder="小标题")
+				.row.marginbottom
+					form(method="POST", id="uploadForm", enctype="multipart/form-data")
+						label(for="inputPoster",class="col-sm-2 control-label") 海报上传:
+						.col-sm-10
+							input(type="file",id="inputPoster",name="uploadPoster",style="display: inline-block;")
+							button(type="button",class="save") 保存图片
+							p.help-block
+				.row.marginbottom
+					label(for="inputAddress",class="col-sm-2 control-label") 详细地址:
+					.col-sm-10
+						input(type="text",class="form-control",id="inputAddress",placeholder="详细地址 省、市、区、街道")
+				.row.marginbottom
+					label(for="inputTell",class="col-sm-2 control-label") 客服电话:
+					.col-sm-10
+						input(type="text",class="form-control",id="inputTell",placeholder="客服电话")
+
+				.row.marginbottom
+					label(for="inputName",class="col-sm-2 control-label") 套餐名称:
+					.col-sm-10
+						input(type="text",class="form-control",id="inputName",placeholder="套餐名称")
+				.row.marginbottom
+					label(for="inputPriceA",class="col-sm-2 control-label") 折后价/元:
+					.col-sm-10
+						input(type="text",class="form-control",id="inputPriceA",placeholder="折后价格")
+				.row.marginbottom
+					label(for="inputPriceB",class="col-sm-2 control-label") 原价/元:
+					.col-sm-10
+						input(type="text",class="form-control",id="inputPriceB",placeholder="原价")
+				.row.marginbottom
+					span.col-sm-2(style="font-weight: bold;") 床的类别:
+					.col-sm-3
+						input(type="radio",name="bed",id="inlineRadio7",value="无")
+						label.radio-inline.marginright(for="inlineRadio7") 无
+					.col-sm-3
+						input(type="radio",name="bed",id="inlineRadio8",value="大床")
+						label.radio-inline.marginright(for="inlineRadio8") 大床
+					.col-sm-3
+						input(type="radio",name="bed",id="inlineRadio9",value="双人床")
+						label.radio-inline.marginright(for="inlineRadio9") 双人床
+				.row.marginbottom
+					label(for="inputGoodTotal",class="col-sm-2 control-label") 商品总数:
+					.col-sm-10
+						input(type="text",class="form-control",id="inputGoodTotal",placeholder="商品总数")
+				.row.marginbottom
+					label.col-sm-2.control-labe 套餐包含:
+					.col-sm-10
+						textarea(id="inputInclude",name="inputInclude",class="form-control",rows="4",placeholder="套餐包含 用&作结束")
+				.row.marginbottom
+					label.col-sm-2.control-label 购买须知:
+					.col-sm-10
+						textarea(id="inputBuyinfo",name="inputBuyinfo",class="form-control",rows="4",placeholder="购买须知 用&作结束")
+				.row.marginbottom
+					label.col-sm-2.control-label 使用介绍:
+					.col-sm-10
+						textarea(id="inputUseinfo",name="inputUseinfo",class="form-control",rows="4",placeholder="使用介绍 用&作结束")
+			.col-md-6
+				.row
+					.col-sm-6
+						p(style="font-weight: bold") 详情图文介绍:
+				.summernote
+	script(src="/font-end/managem/js/good-submit.js")

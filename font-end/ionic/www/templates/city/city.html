@@ -1,0 +1,35 @@
+<ion-view view-title="选择城市" animation="slide-right-left" ng-controller="HomeCtrl">
+	<ion-nav-bar class="bar-light" >
+	  <ion-nav-buttons side="left">
+		<button  class="button button-icon icon ion-ios-arrow-left" ng-click="navigateTo('app.index')"></button>
+	  </ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content >
+	<div class="list">
+		<div class="item item-input-inset">
+			<label class="item-input-wrapper">
+				<input type="text"placeholder="搜索">
+			</label>
+			<button class="button button-small">
+	      确定
+	    </button>
+	    </div>
+	</div>
+	<ion-item>当前城市:
+		<!-- 插件获取位置 -->
+		<span>{{city}}</span>
+	</ion-item>
+	<p class="hotcity">热门城市</p>
+
+	<div class="city">
+		<ion-list>
+		  	<ion-item ng-repeat="item in citys" ng-show="citys">
+		  		<div ng-click="selectCity($index)">
+		  			<span id="{{$index}}">{{item}}</span>
+		  			<!-- <i class="ion-ios-checkmark-empty"></i> -->
+		  		</div>
+		  	</ion-item>
+		</iom-list>
+	</div>
+	</ion-content>
+</ion-view>

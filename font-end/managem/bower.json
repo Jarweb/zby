@@ -1,0 +1,23 @@
+{
+  "name": "jar",
+  "authors": [
+    "Jarweb <215795076@qq.com>"
+  ],
+  "description": "zby",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "jade": "~1.11.0"
+  }
+}

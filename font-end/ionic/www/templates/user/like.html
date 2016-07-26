@@ -1,0 +1,38 @@
+<ion-view view-title="我的收藏" hide-nav-bar="false" class="titlecenter" ng-controller="LikesCtrl">
+	<ion-nav-bar class="bar-light" >
+	  <ion-nav-buttons side="left">
+        <button  class="button button-icon icon ion-ios-arrow-left" ng-click="navigateTo('app.user')"></button>
+	  </ion-nav-buttons>
+	</ion-nav-bar>
+
+	<ion-content>
+		<ion-list>
+		  <li class="likelist" ng-repeat="item in goodlikes" ng-click="goDetail('goods',item.goodId.tag,item.goodId._id)">
+			  <div class="row">
+			  	<div class="col-80 tag">{{item.goodId.tag}}</div>
+			  	<div class="col-20 tag">{{item.goodId.city}}</div>
+			  </div>
+			  <div class="row">
+			  	<div class="col">{{item.goodId.title}}</div>
+			  </div>
+
+			  <div class="row">
+			  	<div class="col">{{item.meta.createAt |date: 'yyyy-MM-dd'}}</div>
+			  </div>
+		  </li>
+		  
+		    <li class="likelist" ng-repeat="item in strategylikes" ng-click="goDetail('strategys',item.strategyId.tag,item.strategyId._id)">
+		  	  <div class="row">
+		  	  	<div class="col-80 tag">{{item.strategyId.tag}}</div>
+		  	  	<div class="col-20 tag">{{item.strategyId.city}}</div>
+		  	  </div>
+		  	  <div class="row">
+		  	  	<div class="col">{{item.strategyId.title}}</div>
+		  	  </div>
+		  	  <div class="row">
+		  	  	<div class="col">{{item.meta.createAt |date: 'yyyy-MM-dd'}}</div>
+		  	  </div>
+		    </li>
+		</ion-list>
+	</ion-content>
+</ion-view>

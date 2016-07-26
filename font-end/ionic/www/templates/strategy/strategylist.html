@@ -1,0 +1,31 @@
+<ion-view view-title="列表页面" hide-nav-bar="false"  animation="slide-right-left" ng-controller="StrategysCtrl">
+    <ion-nav-bar class="bar-light" >
+      <ion-nav-buttons side="left">
+      <button  class="button button-icon ion-ios-arrow-left" ng-click="navigateTo('app.index')"></button>
+      </ion-nav-buttons>
+
+      <ion-nav-buttons side="right">
+        <button  class="button button-icon icon ion-location" ng-click="navigateTo('app.city')" ng-bind="city"></button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-content>
+
+	    <ion-refresher spinner="dots" on-refresh="doRefresh()"></ion-refresher>
+    	    <div ng-repeat="item in strategys" ng-if="strategys!=0">
+    	    	<div ng-click="showDetail(item._id)">
+    			  	<li class="box-wrapper">
+    			       	<div class="box">
+    			       		<img src="img/list.jpg" alt="" ng-src="http://192.168.191.1:3001/back-end/public/upload/{{item.poster}}">
+    			       		<h3>{{item.title}}</h3>
+    			       		<h5>{{item.address}}</h5>
+    			       		<p>
+    			       			<span>{{item.time}}</span>
+    			       		</p>
+    			       	</div>
+    				</li>
+    			</div>
+    	    </div>
+    	    <div ng-if="strategys==0" style="text-align: center;font-size: 18px;margin-top: 10px;">暂时没有内容</div>
+    </ion-content>
+</ion-view>

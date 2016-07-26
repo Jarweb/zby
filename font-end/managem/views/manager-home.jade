@@ -1,0 +1,51 @@
+extends ../layout
+
+block content
+	nav.navbar.navbar-default.navbar-fixed-top
+		.container-fluid
+			.navbar-header
+				button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false")
+					span.sr-only Toggle navigation
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+				a.navbar-brand(href="/manager/home") 周边游
+			.navbar-collapse.collapse#bs-example-navbar-collapse-1
+				ul.nav.navbar-nav
+					li
+						a.hnav(href="/manager/customer/list") 用户列表
+					li
+						a.hnav(href="/manager/good/list") 商品列表
+					li
+						a.hnav(href="/manager/strategy/list") 攻略列表
+					li
+						a.hnav(href="/manager/good/submit") 商品录入
+					li
+						a.hnav(href="/manager/strategy/submit") 攻略录入
+				a(type="button",href="/manager/logout",class="btn navbar-right btn-danger bt") 登出
+	.container.margintop
+		.panel.panel-default
+			.panel-heading 订单列表
+		table.table.table-responsive.table-bordered
+			thead
+				tr
+					th 姓名
+					th 电话
+					th 备注
+					th 商品
+					th 预定日期
+					th 购买数量
+					th 总价
+					th 下单时间
+			tbody
+				if orders
+					each item in orders
+						tr(class="item-id-#{item._id}")
+							td #{item.buyerName}
+							td #{item.buyerPhone}
+							td #{item.buyerRemark}
+							td #{item.goodId.name}
+							td #{item.buyDate}
+							td #{item.buyNum}
+							td #{item.sumPrice}
+							td #{moment(item.meta.updateAt).format('YYYY/MM/DD HH:MM:SS')}

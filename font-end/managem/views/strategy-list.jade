@@ -1,0 +1,91 @@
+extends ../layout
+
+block content
+	nav.navbar.navbar-default.navbar-fixed-top
+		.container-fluid
+			.navbar-header
+				button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false")
+					span.sr-only Toggle navigation
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+				a.navbar-brand(href="/manager/home") 周边游
+			.navbar-collapse.collapse#bs-example-navbar-collapse-1
+				ul.nav.navbar-nav
+					li
+						a.hnav(href="/manager/customer/list") 用户列表
+					li
+						a.hnav(href="/manager/good/list") 商品列表
+					li
+						a.hnav(href="/manager/strategy/list") 攻略列表
+					li
+						a.hnav(href="/manager/good/submit") 商品录入
+					li
+						a.hnav(href="/manager/strategy/submit") 攻略录入
+				a(type="button",href="/manager/logout",class="btn navbar-right btn-danger bt") 登出
+	.container.margintop
+		.panel.panel-default
+			.panel-heading 攻略列表
+		table.table.table-responsive.table-bordered
+			thead
+				tr
+					th
+						.dropdown
+							a.dropdown-toggle(data-toggle="dropdown",href="#",role="button",aria-haspopup="true",aria-expanded="false") 标签
+								span.caret
+							ul.dropdown-menu
+								if strategys
+									-var tags = []
+									-var _tag = {}
+									-var index = 0
+									-var l = strategys.length
+									-for(var i = 0;i<l;i++){
+										-if(_tag[strategys[i].tag] == undefined){
+											-_tag[strategys[i].tag ]= 1
+											-tags[index++] = strategys[i].tag
+
+										-}else if(_tag[strategys[i].tag] == 1){
+											-continue
+										-}
+									-}
+								each item in tags
+										li #{item}
+					th
+						.dropdown
+							a.dropdown-toggle(data-toggle="dropdown",href="#",role="button",aria-haspopup="true",aria-expanded="false") 城市
+								span.caret
+							ul.dropdown-menu
+								if strategys
+									-var citys = []
+									-var _city = {}
+									-var index = 0
+									-var l = strategys.length
+									-for(var i = 0;i<l;i++){
+										-if(_city[strategys[i].city] == undefined){
+											-_city[strategys[i].city ]= 1
+											-citys[index++] = strategys[i].city
+
+										-}else if(_city[strategys[i].city] == 1){
+											-continue
+										-}
+									-}
+									each item in citys
+										li #{item}
+					th 标题
+					th 活动有效期
+					th 录入时间
+						span.caret
+					th 修改
+					th 删除
+			tbody
+				if strategys
+					each item in strategys
+						tr(class="item-id-#{item._id}")
+							td #{item.tag}
+							td #{item.city}
+							td #{item.title}
+							td #{item.time}
+							td #{moment(item.meta.updateAt).format('YYYY/MM/DD HH:MM:SS')}
+							td: a(class="q",target="_blank", href="/m/map/#{item._id}") 修改
+							td: button(type="button",class="btn btn-danger del",data-id="#{item._id}") 删除
+	script(src="/font-end/managem/js/strategy-list.js")

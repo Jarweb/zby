@@ -1,0 +1,47 @@
+<ion-view view-title="个人中心" animation="slide-right-left" hide-nav-bar="false" class="titlecenter" ng-controller="UserCtrl">
+	<ion-nav-bar class="bar-col" >
+	  <ion-nav-buttons side="left">
+        <button  class="button button-icon icon ion-ios-arrow-left" ng-click="navigateTo('app.index')"></button>
+	  </ion-nav-buttons>
+	</ion-nav-bar>
+
+	<ion-content >
+	<div >
+		<div class="userhead" >
+			<img src="img/head.png" alt="">
+			<p>{{user.tell}}</p>
+		</div>
+
+		<div class="row">
+			<div class="col" ng-click="navigateTo('app.user.like')">
+				<i class="ion ion-android-favorite"></i>
+				<p>我的收藏</p>
+			</div>
+			<div class="col" ng-click="navigateTo('app.user.order')">
+				<i class="ion ion-ios-list"></i>
+				<p>我的订单</p>
+			</div>
+			<div class="col">
+				<i class="ion ion-android-notifications"></i>
+				<p>通知中心</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<i class="ion ion-android-share"></i>
+				<p>推荐好友</p>
+			</div>
+			<div class="col">
+				<i class="ion ion-android-alert"></i>
+				<p>关于我们</p>
+			</div>
+			<div class="col" ng-click="navigateTo('app.user.logout')">
+				<i class="ion ion-gear-b"></i>
+				<p>我的设置</p>
+			</div>
+		</div>
+
+	</div>
+	</ion-content>
+</ion-view>

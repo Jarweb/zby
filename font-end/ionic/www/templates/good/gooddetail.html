@@ -1,0 +1,17 @@
+<ion-view view-title="详情浏览" hide-nav-bar="false"   animation="slide-right-left" ng-controller="GoodCtrl">
+    <ion-nav-bar class="bar-light" >
+      <ion-nav-buttons side="left">
+      <button  class="button button-icon ion-ios-arrow-left" ng-click="navigateTo('app.goods')"></button>
+      </ion-nav-buttons>
+
+      <ion-nav-buttons side="right">
+        <button  class="button button-icon ion-ios-heart-outline" ng-click="like()" ng-show="trun"></button>
+        <button  class="button button-icon ion-ios-heart" ng-click="unlike()" ng-hide="trun"></button>
+        <button  class="button button-assertive" ng-click="navigateTo('app.goods.good.buyinfo')">去购买</button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-content>
+      <div class="good-detail-box" ng-bind-html="good.detail"></div>
+    </ion-content>
+</ion-view>

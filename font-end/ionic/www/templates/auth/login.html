@@ -1,0 +1,30 @@
+<ion-view view-title="快乐周边" hide-nav-bar="false" hide-back-button="true"  animation="slide-right-left">
+	<ion-nav-bar class="bar-light" >
+	</ion-nav-bar>
+
+	<ion-content>
+	<div class="signup" ng-controller="AuthCtrl">
+		<div class="row tell">
+          <input type="text" class="signup" placeholder="手机号" ng-model="logintell">
+        </div>
+
+        <div class="row pass">
+          <input type="text" class="signup" placeholder="密码" ng-model="loginpass">
+        </div>
+
+        <div ng-show="msg">{{msg}}</div>
+        <div class="row btn">
+        	<input type="submit" class="button button-assertive" value="登录" ng-click="login()">
+        </div>
+		
+        <div class="row last">
+        	<div class="col-50">
+        		<a href="#/app/auth/signin" title="">注册账号</a>
+        	</div>
+        	<div class="col-50">
+        		<a href="#" title="">忘记密码</a>
+        	</div>
+        </div>
+	</div>
+	</ion-content>
+</ion-view>

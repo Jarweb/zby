@@ -1,0 +1,18 @@
+<ion-view view-title="我的设置" animation="slide-right-left" hide-nav-bar="false" class="titlecenter" ng-controller="UserCtrl">
+	<ion-nav-bar class="bar-col" >
+	  <ion-nav-buttons side="left">
+        <button  class="button button-icon icon ion-ios-arrow-left" ng-click="navigateTo('app.user')"></button>
+	  </ion-nav-buttons>
+	</ion-nav-bar>
+
+	<ion-content >
+
+	<div class="userhead">
+			<img src="img/head.png" alt="">
+			<p>{{user.tell}}</p>
+	</div>
+	<div class="row">
+		<button type="button" class="button button-full button-assertive" ng-click="toLogout()">退出账号</button>
+	</div>
+	</ion-content>
+</ion-view>

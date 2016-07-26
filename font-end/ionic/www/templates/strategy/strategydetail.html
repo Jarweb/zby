@@ -1,0 +1,63 @@
+<ion-view view-title="详情浏览" hide-nav-bar="false"  animation="slide-right-left"  ng-controller="StrategyCtrl" >
+    <ion-nav-bar class="bar-light" >
+      <ion-nav-buttons side="left">
+      <button  class="button button-icon ion-ios-arrow-left" ng-click="navigateTo('app.strategys')"></button>
+      </ion-nav-buttons>
+
+      <ion-nav-buttons side="right">
+        <button  class="button button-icon ion-ios-heart-outline" ng-click="like()" ng-show="trun"></button>
+        <button  class="button button-icon ion-ios-heart" ng-click="unlike()" ng-hide="trun"></button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+      <div class='strategyDet'>
+      
+        <div class="detail-box"ng-bind-html="strategy.detail"></div>
+        
+        <div class="row">
+          <div class="col-10">
+            <i class="ion-ios-navigate-outline"></i>
+          </div>
+          <div class="col-90">城市:&nbsp;{{strategy.city}}</div>
+        </div>
+
+        <div class="row">
+          <div class="col-10">
+            <i class="ion-ios-pricetags-outline"></i>
+          </div>
+          <div class="col-90">价格:&nbsp;{{strategy.price}}</div>
+        </div>
+
+        <div class="row">
+          <div class="col-10">
+            <i class="ion-ios-calendar-outline"></i>
+          </div>
+          <div class="col-90">时间:&nbsp;{{strategy.time}}</div>
+        </div>
+
+        <div class="row">
+          <div class="col-10">
+            <i class="ion-map"></i>
+          </div>
+          <div class="col-80">地址:&nbsp;{{strategy.address}}</div>
+          <div class="col-10">
+            <i class="ion-ios-location-outline" ng-click="navigateTo('app.strategys.strategy.map')"></i>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-10">
+            <i class="ion-ios-people"></i>
+          </div>
+          <div class="col-80">
+            <a href="tel:{{strategy.tell}}" class="">客服:&nbsp;{{strategy.tell}}</a>
+            </div>
+            <div class="col-10">
+              <a href="tel:{{strategy.tell}}" class="">
+              <i class="ion-ios-telephone-outline"></i></a>
+            </div>
+        </div>
+      </div>
+
+    </ion-content>
+</ion-view>

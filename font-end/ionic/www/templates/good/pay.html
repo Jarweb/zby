@@ -1,0 +1,79 @@
+<ion-view view-title="确认支付" hide-nav-bar="false"  animation="slide-right-left" ng-controller="PayCtrl">
+    <ion-nav-bar class="bar-light" >
+      <ion-nav-buttons side="left">
+      <button  class="button button-icon ion-ios-arrow-left" ng-click="toOrderSubmit('app.goods.good.buyinfo.ordersubmit')"></button>
+      </ion-nav-buttons>
+
+    </ion-nav-bar>
+
+    <ion-content>
+    <div class="paylist">
+      <div class="row">
+        <div class="col tit">{{order.title}}</div>
+      </div>
+      <div class="row">
+        <div class="col">{{order.name}}</div>
+      </div>
+
+      <span class="hr"></span>
+
+      <div class="row">
+        <div class="col-20">总价(元): </div>
+        <div class="col-80" style="font-size: 16px;color: red;">{{order.sumPrice}}</div>
+      </div>
+      
+      <div class="row">
+        <div class="col-50">
+          <div class="row">
+            <div class="col-50">数量(份):</div>
+            <div class="col-33">{{order.count}}</div>
+          </div>
+        </div>
+        <div class="col-50">
+          <div class="row">
+            <div class="col-50">单价(元):</div>
+            <div class="col-33">{{order.price}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-20">选择时间: </div>
+        <div class="col-80">{{order.date}}</div>
+      </div>
+      <span class="hr"></span>
+      
+      <div class="row">
+        <div class="col-20">联系人: </div>
+        <div class="col-80">{{order.username}}</div>
+      </div>
+      <div class="row">
+        <div class="col-20">电话: </div>
+        <div class="col-80">{{order.usertell}}</div>
+      </div>
+      <div class="row">
+        <div class="col-20">备注: </div>
+        <div class="col-80">{{order.remark}}</div>
+      </div>
+      <span class="hr"></span>
+
+      <p>支付方式:</p>
+      <div class="row payway">
+          <div class="col-10"><i class="fa fa-weixin"></i></div>
+          <div class="col-80">微信</div>
+          <div class="col-10"><i class="fa fa-circle-o"></i></div>
+      </div>
+      <div class="row payway">
+          <div class="col-10"><i class="fa fa-qq"></i></div>
+          <div class="col-80">QQ</div>
+          <div class="col-10"><i class="fa fa-circle-o"></i></div>
+      </div>
+      <div class="row payway">
+          <div class="col-10"><i class="fa fa-credit-card"></i></div>
+          <div class="col-80">支付宝</div>
+          <div class="col-10"><i class="fa fa-circle-o"></i></div>
+      </div>
+        <button type="button" class="button button-full button-assertive btn-bottom" ng-click="pay()">确认支付</button>
+    </div>
+    </ion-content>
+</ion-view>
